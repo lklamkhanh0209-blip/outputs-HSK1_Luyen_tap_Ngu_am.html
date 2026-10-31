@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HSK 1 – Luyện tập Ngữ âm</title>
+<style>
+:root{--red:#a83232;--red2:#c85a52;--pink:#fff0ed;--ink:#292929;--muted:#707070;--line:#ead6d2;--green:#287a54}
+*{box-sizing:border-box}body{margin:0;background:#faf8f7;color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(120deg,#8f2528,#b64a43);color:#fff;padding:28px max(22px,calc((100% - 1120px)/2));}
+.kicker{font-size:12px;letter-spacing:2px;opacity:.85;font-weight:700}.hero{display:flex;justify-content:space-between;align-items:center;gap:20px}.hero h1{font-size:clamp(25px,4vw,38px);margin:8px 0}.hero p{margin:0;opacity:.9}.pill{border:1px solid #ffffff70;padding:8px 14px;border-radius:30px;font-size:13px;white-space:nowrap}
+.wrap{max-width:1120px;margin:24px auto;padding:0 20px}.progressbox,.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:18px;box-shadow:0 5px 20px #4a17100a}
+.progress-head{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700}.bar{height:9px;background:#f1e4e1;border-radius:20px;margin-top:12px;overflow:hidden}.bar span{display:block;height:100%;width:0;background:var(--red2);transition:.3s}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tab{border:1px solid var(--line);background:#fff;color:#603b38;border-radius:30px;padding:10px 15px;cursor:pointer;font-weight:650}.tab.active,.tab:hover{background:var(--red);color:white;border-color:var(--red)}
+h2{font-size:22px;margin:0 0 6px;color:#8f292b}h3{font-size:17px;margin:20px 0 10px}.sub{color:var(--muted);margin:0 0 18px;font-size:14px}
+.section{display:none}.section.active{display:block}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.tile{background:#fff8f6;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}.tile strong{display:block;font-size:24px;color:#8f292b}.tile small{color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}th{background:#a83c39;color:white}td,th{border:1px solid var(--line);padding:10px;text-align:center}tr:nth-child(even) td{background:#fff9f7}
+.tonegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}.tone{background:#fff8f6;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}.tone svg{width:100%;height:70px}.tone b{font-size:18px;color:#912e30}
+.question{border:1px solid var(--line);border-radius:13px;padding:16px;margin:12px 0;background:#fff}.question p{margin:0 0 10px;font-weight:650}.opts{display:flex;gap:9px;flex-wrap:wrap}.opts label{border:1px solid #e5d6d2;border-radius:9px;padding:8px 12px;cursor:pointer}.opts label:has(input:checked){background:#fff0ed;border-color:var(--red2)}input[type=radio]{accent-color:var(--red)}
+input[type=text]{padding:10px;border:1px solid #d9c8c4;border-radius:8px;width:100%;max-width:180px;font-size:16px}
+button.action{background:var(--red);color:#fff;border:0;padding:11px 17px;border-radius:9px;font-weight:700;cursor:pointer;margin:8px 6px 4px 0}button.secondary{background:#f6e9e6;color:#773432}.feedback{font-weight:700;margin-top:12px}.good{color:var(--green)}.bad{color:#b33b34}.hint{background:#fff4e8;border-left:4px solid #d18b45;padding:11px 13px;border-radius:7px;font-size:13px;color:#6e4c2c}
+.word{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);padding:8px 11px;border-radius:9px;margin:4px}.word button{border:0;background:none;cursor:pointer;font-size:17px}
+footer{text-align:center;color:#887b78;padding:24px;font-size:12px}
+@media(max-width:600px){header{padding:22px 18px}.hero{display:block}.pill{display:inline-block;margin-top:14px}.wrap{padding:0 13px}.panel{padding:15px}table{font-size:13px}td,th{padding:7px}}
+</style></head>
+<body>
+<header><div class="hero"><div><div class="kicker">NEW HSK COURSE 1 · WORKBOOK</div><h1>练习语音 · Luyện tập Ngữ âm</h1><p>Hệ thống bài tập ngữ âm tiếng Trung – HSK 1</p></div><span class="pill">BÀI 1 · AI小语，你好！</span></div></header>
+<main class="wrap">
+<div class="progressbox"><div class="progress-head"><span>Tiến độ luyện tập</span><span id="scoreLabel">0 / 0 câu đúng</span></div><div class="bar"><span id="progress"></span></div></div>
+<nav>
+<button class="tab active" data-tab="overview">Kiến thức</button><button class="tab" data-tab="syllable">Âm tiết</button><button class="tab" data-tab="initials">Thanh mẫu & vận mẫu</button><button class="tab" data-tab="tones">Thanh điệu</button><button class="tab" data-tab="practice">Bài tập</button>
+</nav>
+<section id="overview" class="section active">
+<div class="panel"><h2>一、语音 · Ngữ âm</h2><p class="sub">Tổng quan kiến thức ngữ âm được trình bày trong phần đầu Bài 1 của tài liệu.</p>
+<div class="grid">
+<div class="tile"><strong>声母</strong>Thanh mẫu<small>Âm đầu của âm tiết</small></div><div class="tile"><strong>韵母</strong>Vận mẫu<small>Phần vần của âm tiết</small></div><div class="tile"><strong>声调</strong>Thanh điệu<small>4 thanh cơ bản</small></div><div class="tile"><strong>音节</strong>Âm tiết<small>Đơn vị phát âm</small></div></div>
+<h3>Cấu tạo âm tiết tiếng Trung</h3><p>Một âm tiết tiếng Trung thường gồm <b>thanh mẫu + vận mẫu + thanh điệu</b>. Một số âm tiết không có thanh mẫu, chỉ gồm vận mẫu và thanh điệu.</p>
+<div class="grid"><div class="tile"><strong>b + a + ˉ</strong><small>bā – 八</small></div><div class="tile"><strong>b + a + ˊ</strong><small>bá – 拔</small></div><div class="tile"><strong>b + a + ˇ</strong><small>bǎ – 把</small></div><div class="tile"><strong>b + a + ˋ</strong><small>bà – 爸</small></div></div>
+<p class="hint">Lưu ý: Phần luyện nghe trong sách có ký hiệu audio 1-1 và 1-2. File PDF được cung cấp không kèm dữ liệu âm thanh, vì vậy website dùng chức năng đọc tiếng Trung của trình duyệt để hỗ trợ luyện phát âm; phần nghe điền đáp án cần giáo viên phát audio gốc.</p></div></section>
+<section id="syllable" class="section"><div class="panel"><h2>1. 汉语音节 · Âm tiết tiếng Trung</h2><p class="sub">Quan sát ví dụ và nghe cách đọc mẫu.</p>
+<table><tr><th>Thanh mẫu</th><th>Vận mẫu</th><th>Thanh điệu</th><th>Âm tiết</th><th>Chữ Hán</th></tr>
+<tr><td>b</td><td>a</td><td>ˉ (thanh 1)</td><td>bā</td><td>八</td></tr><tr><td>b</td><td>a</td><td>ˊ (thanh 2)</td><td>bá</td><td>拔</td></tr><tr><td>b</td><td>a</td><td>ˇ (thanh 3)</td><td>bǎ</td><td>把</td></tr><tr><td>b</td><td>a</td><td>ˋ (thanh 4)</td><td>bà</td><td>爸</td></tr><tr><td>—</td><td>a</td><td>ˉ</td><td>ā</td><td>阿</td></tr><tr><td>—</td><td>a</td><td>ˊ</td><td>á</td><td>啊</td></tr></table>
+<h3>看图读音 · Từ vựng luyện đọc trong sách</h3>
+<div class="grid">
+<div class="tile"><strong>chá</strong>茶 <small>trà</small><br><button class="action secondary" onclick="speak('茶')">🔊 Nghe</button></div>
+<div class="tile"><strong>gǒu</strong>狗 <small>chó</small><br><button class="action secondary" onclick="speak('狗')">🔊 Nghe</button></div>
+<div class="tile"><strong>māo</strong>猫 <small>mèo</small><br><button class="action secondary" onclick="speak('猫')">🔊 Nghe</button></div>
+<div class="tile"><strong>cài</strong>菜 <small>món ăn / rau</small><br><button class="action secondary" onclick="speak('菜')">🔊 Nghe</button></div>
+<div class="tile"><strong>bēizi</strong>杯子 <small>cái cốc</small><br><button class="action secondary" onclick="speak('杯子')">🔊 Nghe</button></div>
+<div class="tile"><strong>xuésheng</strong>学生 <small>học sinh</small><br><button class="action secondary" onclick="speak('学生')">🔊 Nghe</button></div>
+<div class="tile"><strong>lǎoshī</strong>老师 <small>giáo viên</small><br><button class="action secondary" onclick="speak('老师')">🔊 Nghe</button></div>
+<div class="tile"><strong>jīdàn</strong>鸡蛋 <small>trứng gà</small><br><button class="action secondary" onclick="speak('鸡蛋')">🔊 Nghe</button></div></div></div></section>
+<section id="initials" class="section"><div class="panel"><h2>2. 声母和韵母 · Thanh mẫu và vận mẫu</h2><p class="sub">Danh sách được trình bày theo bảng trong giáo trình.</p>
+<table><tr><th>声母 · Thanh mẫu</th><th>韵母 · Vận mẫu</th></tr><tr><td>b　p　m　f</td><td>a　o　e　i [i]　u　ü　er</td></tr><tr><td>d　t　n　l</td><td>ai　ei　ao　ou</td></tr><tr><td>g　k　h</td><td>an　en</td></tr><tr><td></td><td>ang　eng　ong</td></tr></table>
+<h3>Một số quy tắc kết hợp được nêu trong sách</h3><ul><li>Ngoại trừ n và l, các thanh mẫu còn lại trong bảng không kết hợp với vận mẫu bắt đầu bằng ü.</li><li>b, p, f không kết hợp với vận mẫu e.</li><li>f, g, k, h không kết hợp với vận mẫu i.</li><li>Vận mẫu er không kết hợp với thanh mẫu, đứng độc lập thành một âm tiết.</li></ul>
+<div class="hint">Đây là các quy tắc được nêu trong phần lý thuyết của tài liệu; khi dạy học, nên cho học viên luyện nghe – đọc và nhận diện từng âm.</div></div></section>
+<section id="tones" class="section"><div class="panel"><h2>3. 声调 · Thanh điệu</h2><p class="sub">Tiếng Trung có bốn thanh điệu cơ bản. Thanh điệu làm thay đổi ý nghĩa của âm tiết.</p>
+<div class="tonegrid">
+<div class="tone"><svg viewBox="0 0 120 70"><path d="M12 18 L108 18" stroke="#a83232" stroke-width="5" fill="none" stroke-linecap="round"/></svg><b>第一声 ˉ</b><br>Thanh 1 · 55<br><small>cao và ngang</small></div>
+<div class="tone"><svg viewBox="0 0 120 70"><path d="M12 52 L108 15" stroke="#a83232" stroke-width="5" fill="none" stroke-linecap="round"/></svg><b>第二声 ˊ</b><br>Thanh 2 · 35<br><small>đi lên</small></div>
+<div class="tone"><svg viewBox="0 0 120 70"><path d="M12 18 L60 55 L108 18" stroke="#a83232" stroke-width="5" fill="none" stroke-linecap="round"/></svg><b>第三声 ˇ</b><br>Thanh 3 · 214<br><small>xuống rồi lên</small></div>
+<div class="tone"><svg viewBox="0 0 120 70"><path d="M12 15 L108 55" stroke="#a83232" stroke-width="5" fill="none" stroke-linecap="round"/></svg><b>第四声 ˋ</b><br>Thanh 4 · 51<br><small>đi xuống</small></div></div>
+<h3>Luyện đọc bốn thanh</h3><div class="grid"><div class="tile"><strong>mā · má · mǎ · mà</strong><small>ma – luyện thanh điệu</small><br><button class="action secondary" onclick="speak('mā má mǎ mà')">🔊 Nghe</button></div><div class="tile"><strong>dā · dá · dǎ · dà</strong><small>da – luyện thanh điệu</small><br><button class="action secondary" onclick="speak('dā dá dǎ dà')">🔊 Nghe</button></div><div class="tile"><strong>kē · ké · kě · kè</strong><small>ke – luyện thanh điệu</small><br><button class="action secondary" onclick="speak('kē ké kě kè')">🔊 Nghe</button></div></div></div></section>
+<section id="practice" class="section"><div class="panel"><h2>4. 听读练 · Bài tập luyện tập</h2><p class="sub">Chọn đáp án phù hợp. Nhấn “Kiểm tra” để xem kết quả.</p>
+<form id="quiz">
+<div class="question" data-answer="b"><p>1. Trong âm tiết bā, thành phần nào là thanh mẫu?</p><div class="opts"><label><input type="radio" name="q1" value="a"> a</label><label><input type="radio" name="q1" value="b"> b</label><label><input type="radio" name="q1" value="c"> ā</label></div></div>
+<div class="question" data-answer="c"><p>2. Âm tiết nào có thanh 3?</p><div class="opts"><label><input type="radio" name="q2" value="a"> bá</label><label><input type="radio" name="q2" value="b"> bà</label><label><input type="radio" name="q2" value="c"> bǎ</label><label><input type="radio" name="q2" value="d"> bā</label></div></div>
+<div class="question" data-answer="a"><p>3. Vận mẫu nào đứng độc lập thành một âm tiết theo bài học?</p><div class="opts"><label><input type="radio" name="q3" value="a"> er</label><label><input type="radio" name="q3" value="b"> ang</label><label><input type="radio" name="q3" value="c"> ao</label></div></div>
+<div class="question" data-answer="d"><p>4. Thanh điệu 51 là thanh mấy?</p><div class="opts"><label><input type="radio" name="q4" value="a"> Thanh 1</label><label><input type="radio" name="q4" value="b"> Thanh 2</label><label><input type="radio" name="q4" value="c"> Thanh 3</label><label><input type="radio" name="q4" value="d"> Thanh 4</label></div></div>
+<div class="question" data-answer="b"><p>5. Chữ 茶 có pinyin nào?</p><div class="opts"><label><input type="radio" name="q5" value="a"> cài</label><label><input type="radio" name="q5" value="b"> chá</label><label><input type="radio" name="q5" value="c"> gǒu</label></div></div>
+<div class="question" data-answer="c"><p>6. Thanh mẫu nào không kết hợp với vận mẫu e theo quy tắc trong sách?</p><div class="opts"><label><input type="radio" name="q6" value="a"> d</label><label><input type="radio" name="q6" value="b"> l</label><label><input type="radio" name="q6" value="c"> b</label></div></div>
+<div class="question" data-answer="a"><p>7. Chữ 狗 được đọc là gì?</p><div class="opts"><label><input type="radio" name="q7" value="a"> gǒu</label><label><input type="radio" name="q7" value="b"> māo</label><label><input type="radio" name="q7" value="c"> cài</label></div></div>
+<div class="question" data-answer="b"><p>8. Thanh điệu nào có đường nét xuống rồi lên?</p><div class="opts"><label><input type="radio" name="q8" value="a"> Thanh 2</label><label><input type="radio" name="q8" value="b"> Thanh 3</label><label><input type="radio" name="q8" value="c"> Thanh 4</label></div></div>
+<button type="button" class="action" onclick="checkQuiz()">Kiểm tra đáp án</button><button type="reset" class="action secondary" onclick="resetQuiz()">Làm lại</button><div id="result" class="feedback" aria-live="polite"></div></form>
+<hr style="border:0;border-top:1px solid #ead6d2;margin:24px 0">
+<h3>练习听写 · Luyện viết theo âm nghe</h3><p class="sub">Các mục dưới đây mô phỏng dạng bài trong sách: nghe rồi điền thanh mẫu, vận mẫu hoặc thanh điệu. Vì PDF không chứa audio, giáo viên có thể phát file nghe gốc để học viên nhập câu trả lời.</p>
+<div class="question"><p>A. Điền thanh mẫu nghe được</p><div class="grid"><div>___ à <input type="text" placeholder="Thanh mẫu"></div><div>___ ěi <input type="text" placeholder="Thanh mẫu"></div><div>___ án <input type="text" placeholder="Thanh mẫu"></div><div>___ ù <input type="text" placeholder="Thanh mẫu"></div><div>___ ǎi <input type="text" placeholder="Thanh mẫu"></div></div></div>
+<div class="question"><p>B. Điền vận mẫu nghe được</p><div class="grid"><div>t ___ <input type="text" placeholder="Vận mẫu"></div><div>h ___ <input type="text" placeholder="Vận mẫu"></div><div>m ___ <input type="text" placeholder="Vận mẫu"></div><div>d ___ <input type="text" placeholder="Vận mẫu"></div><div>f ___ <input type="text" placeholder="Vận mẫu"></div></div></div>
+<div class="question"><p>C. Đánh dấu thanh điệu nghe được</p><div class="grid"><div>lao <select><option>Chọn thanh</option><option>Thanh 1</option><option>Thanh 2</option><option>Thanh 3</option><option>Thanh 4</option></select></div><div>neng <select><option>Chọn thanh</option><option>Thanh 1</option><option>Thanh 2</option><option>Thanh 3</option><option>Thanh 4</option></select></div><div>ge <select><option>Chọn thanh</option><option>Thanh 1</option><option>Thanh 2</option><option>Thanh 3</option><option>Thanh 4</option></select></div><div>ba <select><option>Chọn thanh</option><option>Thanh 1</option><option>Thanh 2</option><option>Thanh 3</option><option>Thanh 4</option></select></div></div></div>
+<div class="hint">Các câu A–C cần audio 1-2 của giáo trình để xác định đáp án chính xác. Website không tự chấm các câu này nhằm tránh cung cấp đáp án suy đoán.</div>
+</div></section>
+</main><footer>HSK 1 · NGỮ ÂM · Tài liệu luyện tập xây dựng dựa trên Workbook do người học cung cấp</footer>
+<script>
+const tabs=document.querySelectorAll('.tab');tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}));
+function speak(text){if(!('speechSynthesis'in window)){alert('Trình duyệt chưa hỗ trợ đọc văn bản.');return;}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=.78;speechSynthesis.speak(u)}
+function checkQuiz(){let qs=[...document.querySelectorAll('#quiz .question[data-answer]')],correct=0,done=0;qs.forEach((q,i)=>{let selected=q.querySelector('input:checked');q.style.borderColor='#ead6d2';if(selected){done++;if(selected.value===q.dataset.answer){correct++;q.style.borderColor='#3a936a'}else q.style.borderColor='#c85a52'}});let result=document.getElementById('result');result.textContent=`Bạn trả lời ${done}/${qs.length} câu. Số câu đúng: ${correct}/${qs.length}.`;result.className='feedback '+(correct===qs.length?'good':'bad');document.getElementById('scoreLabel').textContent=`${correct} / ${qs.length} câu đúng`;document.getElementById('progress').style.width=(correct/qs.length*100)+'%'}
+function resetQuiz(){setTimeout(()=>{document.querySelectorAll('#quiz .question').forEach(q=>q.style.borderColor='#ead6d2');document.getElementById('result').textContent='';document.getElementById('scoreLabel').textContent='0 / 0 câu đúng';document.getElementById('progress').style.width='0%'},0)}
+</script></body></html>
